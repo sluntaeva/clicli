@@ -1,1 +1,41 @@
-h1 { font-family: Arial, Helvetica, sans-serif; }
+﻿@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+*{font-family:'Nunito',sans-serif;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:linear-gradient(135deg,#1a0533 0%,#0d1b4b 50%,#0a2e1a 100%);min-height:100vh;overflow-x:hidden;margin:0;padding:0}
+
+@keyframes clickPop{0%{transform:scale(1)}30%{transform:scale(.88)}60%{transform:scale(1.08)}100%{transform:scale(1)}}
+@keyframes floatUp{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-120px) scale(1.5)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 20px #f59e0b88,0 0 60px #f59e0b44}50%{box-shadow:0 0 40px #f59e0bcc,0 0 100px #f59e0b66}}
+@keyframes upgrade-unlock{0%{transform:scale(.8);opacity:0}100%{transform:scale(1);opacity:1}}
+
+.cookie-btn{cursor:pointer;transition:filter .1s;user-select:none;animation:pulse-glow 2.5s ease-in-out infinite;-webkit-user-select:none;touch-action:manipulation}
+.cookie-btn:active{filter:brightness(.85);transform:scale(.95)}
+.cookie-btn.clicked{animation:clickPop .25s ease-out,pulse-glow 2.5s ease-in-out infinite}
+
+.float-text{position:fixed;pointer-events:none;font-weight:900;font-size:1.2rem;color:#fbbf24;text-shadow:0 2px 8px #00000088;animation:floatUp 1s ease-out forwards;z-index:9999}
+
+.upgrade-card{transition:all .2s;animation:upgrade-unlock .3s ease-out}
+.upgrade-card:hover:not(.disabled){transform:translateY(-3px) scale(1.02)}
+.upgrade-card:active:not(.disabled){transform:scale(.97)}
+.upgrade-card.disabled{opacity:.45;cursor:not-allowed}
+.upgrade-card.can-afford{border-color:#f59e0b !important;box-shadow:0 0 18px #f59e0b66}
+
+.stat-bar{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px)}
+
+.tab-btn{background:rgba(255,255,255,.05);border-top:1px solid rgba(255,255,255,.1);color:#999;transition:all .2s}
+.tab-btn.tab-active{background:rgba(245,158,11,.15);color:#f59e0b;border-top-color:#f59e0b}
+
+/* Mobile: show cookie, hide shop by default */
+@media(max-width:1023px){
+  main{padding-bottom:60px !important}
+  .mobile-shop{display:none;padding-bottom:60px !important;max-height:calc(100vh - 104px)}
+  .mobile-shop.show{display:block}
+  main.hide{display:none !important}
+}
+@media(min-width:1024px){
+  .mobile-shop{display:block !important}
+  main{display:flex !important}
+}
+
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:rgba(255,255,255,.05)}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:3px}

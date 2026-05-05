@@ -1,12 +1,12 @@
-import { Hono } from 'hono'
-import { renderer } from './renderer'
+﻿import { Hono } from 'hono'
+import { cors } from 'hono/cors'
+import api from './routes/api'
+import page from './routes/page'
 
 const app = new Hono()
 
-app.use(renderer)
-
-app.get('/', (c) => {
-  return c.render(<h1>Hello!</h1>)
-})
+app.use('/api/*', cors())
+app.route('/api', api)
+app.route('/', page)
 
 export default app
