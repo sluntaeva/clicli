@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
 *{font-family:'Nunito',sans-serif;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{background:linear-gradient(135deg,#1a0533 0%,#0d1b4b 50%,#0a2e1a 100%);min-height:100vh;overflow-x:hidden;margin:0;padding:0}
 
